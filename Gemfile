@@ -38,6 +38,9 @@ gem 'autoprefixer-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
+# added for class 5
+gem 'powerpack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
