@@ -1,18 +1,27 @@
 <% content_for :title, @book.title %>
 <article class="book">
+
   <header>
     <h2><%= @book.title %> </h2>
   </header>
+
   <p><label>Author:</label> <%= @book.author %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
   <p><label>Average Review:</label> <%= format_average_stars(@book) %></p>
+
 </article>
 
-<%= link_to 'Edit This Book', edit_book_path(@book) %>
-|
-<%= link_to 'View All Books', books_path %>
-
+<p>
+  Read all
+      <%= link_to pluralize(@book.reviews.size, 'review'), 
+                            book_reviews_path(@book) %>
+  |
+  <%= link_to 'Edit This Book', edit_book_path(@book) %>
+  |
+  <%= link_to 'View All Books', books_path %>
+  
 <%= button_to 'Delete This Book', @book,
               method: :delete,
               data: { confirm: 'Are you sure you want to delete this sweet book?' } %>
+</p>
