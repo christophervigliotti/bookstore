@@ -8,7 +8,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    # replaced by the before_action @book = Book.find(params[:id])
   end
 
   def new
@@ -18,7 +17,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      # redirect_to @book
       redirect_to @book, notice: "#{@book.title} was created!"
     else
       render :new
@@ -26,13 +24,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    # replaced by the before_action @book = Book.find(params[:id])
   end
 
   def update
-    # replaced by the before_action @book = Book.find(params[:id])
     if @book.update(book_params)
-      # redirect_to @book
       redirect_to @book, notice: "#{@book.title} was updated!"
     else
       render :edit
@@ -40,7 +35,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    # replaced by the before_action @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_url, notice: "#{@book.title} was DESTROYED HA HA HA!!!"
   end

@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-
 $(document).on('ajax:success', '[data-update-target]', function(evt, data) {
     var targetId = $(this).data('update-target');
     var target = $('#' + targetId);
